@@ -1,0 +1,6 @@
+---
+description: FastFlip agent API — unsigned trades only, never send keys
+alwaysApply: true
+---
+
+Follow AGENTS.md in this repo. Use https://fastflip.xyz/api/v1 and OpenAPI. Never POST private keys to FastFlip. prepare() is unsigned calldata only. Chain ID 46630.

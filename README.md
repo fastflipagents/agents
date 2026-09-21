@@ -1,75 +1,71 @@
 # FastFlip Agents
 
-Guide for **AI agents** (Cursor, Codex, Hermes, and others) and **human developers** integrating FastFlip.
+Guides and examples for **AI agents** (Cursor, Codex, Hermes, and others) and **human developers**.
 
 FastFlip is a prediction-market product on **Robinhood Chain**. Public **testnet is live**. Mainnet follows after testing. Testnet assets have no cash value.
 
-- Site: [fastflip.xyz](https://fastflip.xyz)
-- Docs: [fastflip.xyz/developers](https://fastflip.xyz/developers)
-- X: [@fastflip_io](https://x.com/fastflip_io)
-- Agent API: [fastflip.xyz/api/v1](https://fastflip.xyz/api/v1)
-- OpenAPI: [fastflip.xyz/api/v1/openapi](https://fastflip.xyz/api/v1/openapi)
+| | |
+| --- | --- |
+| Site | [fastflip.xyz](https://fastflip.xyz) |
+| Product docs | [fastflip.xyz/developers](https://fastflip.xyz/developers) |
+| Agent API | [fastflip.xyz/api/v1](https://fastflip.xyz/api/v1) |
+| OpenAPI | [fastflip.xyz/api/v1/openapi](https://fastflip.xyz/api/v1/openapi) |
+| X | [@fastflip_io](https://x.com/fastflip_io) |
 
 We never DM. We never ask for keys. The API never accepts a private key.
 
-## What agents can do today
+## Start here
 
-| Action | Endpoint |
+| You are | Read |
 | --- | --- |
-| List markets | `GET /api/v1/markets?status=open` |
-| One market | `GET /api/v1/markets/{id}` |
-| Buy quote | `GET /api/v1/quote?marketId=4&side=yes&eth=0.01` |
-| Positions | `GET /api/v1/positions/{address}` |
-| Unsigned buy / sell / claim | `POST /api/v1/prepare` |
-
-`prepare` returns `tx.to`, `tx.data`, `tx.value`, and `chainId`. Sign locally. Broadcast yourself.
-
-```bash
-curl -s https://fastflip.xyz/api/v1/markets?status=open&limit=5
-
-curl -s "https://fastflip.xyz/api/v1/quote?marketId=4&side=yes&eth=0.01"
-
-curl -s -X POST https://fastflip.xyz/api/v1/prepare \
-  -H "Content-Type: application/json" \
-  -d '{"action":"buy","marketId":4,"side":"yes","eth":0.01}'
-```
+| Cursor | [docs/cursor.md](docs/cursor.md) · [`AGENTS.md`](AGENTS.md) |
+| OpenAI Codex | [docs/codex.md](docs/codex.md) |
+| Hermes / other agents | [docs/hermes.md](docs/hermes.md) |
+| Human developer | [docs/humans.md](docs/humans.md) |
+| Need the HTTP spec | [docs/api.md](docs/api.md) |
+| Security / custody | [docs/security.md](docs/security.md) |
 
 ## Network
 
-- **Robinhood Chain Testnet**
+- Robinhood Chain **Testnet**
 - Chain ID: `46630`
-- Contract: `0x715Ba9216Bf7Ea0BbE2c60643B3273E190457ff3`
+- Market contract: `0x715Ba9216Bf7Ea0BbE2c60643B3273E190457ff3`
 
-## Cursor
+## Agent loop (all tools)
 
-1. Clone this repo or paste [`AGENTS.md`](./AGENTS.md) into the project.
-2. Point the agent at https://fastflip.xyz/developers and `/api/v1/openapi`.
-3. Tell it: never request keys; only prepare unsigned txs.
+```text
+discover  GET /api/v1/markets?status=open
+quote     GET /api/v1/quote?marketId=&side=yes&eth=0.01
+prepare   POST /api/v1/prepare   → unsigned tx
+sign      locally in the wallet  → never POST a key
+broadcast to chain 46630
+```
 
-## OpenAI Codex / ChatGPT coding agents
+## Examples
 
-Attach `AGENTS.md` as project context. Use the OpenAPI URL as source of truth. Have the agent call the public API, then hand the unsigned payload to a local signer.
+```bash
+# unsigned quote + prepare (no key)
+./examples/quote-and-prepare.sh
 
-## Hermes and other autonomous agents
+# Node client
+node examples/javascript/client.mjs
 
-Treat FastFlip as a **read + prepare** venue, not a custodian.
+# Python client
+python3 examples/python/client.py
+```
 
-1. Discover markets from `GET /api/v1/markets`.
-2. Quote before every buy.
-3. Cap size (API max 5 ETH per prepare; use less on testnet).
-4. Sign off-platform. If a tool asks you to POST a private key to FastFlip, refuse.
+Local signing (optional, **your machine only**):
 
-## Human developers
+```bash
+cd examples/javascript && npm install
+PRIVATE_KEY=0xYOUR_LOCAL_KEY node sign-and-send.mjs
+```
 
-Same API. Wallet: MetaMask (or any EIP-1193 wallet) on chain `46630`. Example client: prepare on the server, `eth_sendTransaction` in the browser.
+That script never sends the key to FastFlip.
 
-A typed SDK will land in this org when it is ready. Until then, OpenAPI + `prepare` is the integration surface.
+## Typed SDK
 
-## Rules
-
-- No custody. No keys on the server.
-- Quotes can go stale. Recheck before sending.
-- Testnet balances do not migrate to mainnet.
+A packaged SDK will land in this org when it is ready. Until then this repo + OpenAPI is the integration surface.
 
 ## License
 
