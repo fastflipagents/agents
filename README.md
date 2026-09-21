@@ -45,9 +45,11 @@ broadcast to chain 46630
 ## SDK
 
 ```bash
-npm install fastflip
-pip install fastflip
+npm install https://github.com/fastflipagents/agents/releases/download/v1.0.0/fastflip-1.0.0.tgz
+pip install https://github.com/fastflipagents/agents/releases/download/v1.0.0/fastflip-1.0.0-py3-none-any.whl
 ```
+
+Registry name (npm + PyPI): `fastflip` — `npm install fastflip` / `pip install fastflip` after those accounts are connected.
 
 ```js
 import { FastFlip } from "fastflip";

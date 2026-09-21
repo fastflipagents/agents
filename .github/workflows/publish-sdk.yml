@@ -1,8 +1,8 @@
 name: publish-sdk
 
+# Run after npm + PyPI trusted publishing are configured:
+#   gh workflow run publish-sdk.yml
 on:
-  release:
-    types: [published]
   workflow_dispatch:
 
 jobs:

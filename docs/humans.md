@@ -42,8 +42,8 @@ See `examples/javascript/sign-and-send.mjs`. Install `ethers`, set `PRIVATE_KEY`
 ## SDK
 
 ```bash
-npm install fastflip
-pip install fastflip
+npm install https://github.com/fastflipagents/agents/releases/download/v1.0.0/fastflip-1.0.0.tgz
+pip install https://github.com/fastflipagents/agents/releases/download/v1.0.0/fastflip-1.0.0-py3-none-any.whl
 ```
 
 See [docs/sdk.md](sdk.md). Raw HTTP is still fine: `examples/javascript/client.mjs` or OpenAPI.

@@ -2,10 +2,19 @@
 
 Published packages wrap the live Agent API. Same rules as HTTP: **unsigned prepare only, never send keys.**
 
-| Registry | Package | Install |
-| --- | --- | --- |
-| npm | [`fastflip`](https://www.npmjs.com/package/fastflip) | `npm install fastflip` |
-| PyPI | [`fastflip`](https://pypi.org/project/fastflip/) | `pip install fastflip` |
+Install from the [v1.0.0 release](https://github.com/fastflipagents/agents/releases/tag/v1.0.0) today. The registry name on npm and PyPI is `fastflip` (publish after `npm login` / PyPI trusted publisher).
+
+```bash
+npm install https://github.com/fastflipagents/agents/releases/download/v1.0.0/fastflip-1.0.0.tgz
+pip install https://github.com/fastflipagents/agents/releases/download/v1.0.0/fastflip-1.0.0-py3-none-any.whl
+```
+
+After the registries are live:
+
+```bash
+npm install fastflip
+pip install fastflip
+```
 
 Source in this repo: [`sdk/js`](../sdk/js) · [`sdk/python`](../sdk/python).
 
