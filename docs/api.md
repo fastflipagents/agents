@@ -4,7 +4,7 @@ Base URL: `https://fastflip.xyz/api/v1`
 OpenAPI: https://fastflip.xyz/api/v1/openapi  
 All JSON responses include `"ok": true` or `"ok": false, "error": "..."`.
 
-CORS is open for `GET`/`POST` with `Content-Type: application/json`. Rate limit: about 40 requests / 10s per client (positions is stricter).
+CORS is open for `GET`/`POST` with `Content-Type: application/json`. Rate limit: about 40 requests / 10s per client, plus a global ceiling (positions is stricter).
 
 ## GET /
 
@@ -31,11 +31,11 @@ Query (required unless noted):
 - `side` — `yes` (default) or `no`
 - `eth` — `0.000001` to `5`
 
-Returns an **indicative** AMM buy quote (`shares`, `feeEth`, `avgCents`, `impact`, `feeBps`). Reserves can move before you send.
+Market must be **open** (same rule as prepare buy). Returns an **indicative** AMM buy quote (`shares`, `feeEth`, `avgCents`, `impact`, `feeBps`). Reserves can move before you send.
 
 ## GET /positions/{addr}
 
-`addr` must be `0x` + 40 hex chars. Scans recent markets for `yesShares` / `noShares`. Incomplete for very old ids.
+`addr` must be `0x` + 40 hex chars. Scans up to 200 markets by id for `yesShares` / `noShares`. Response includes `scanned`, `available`, and `truncated` if the book is larger than the scan cap.
 
 ## POST /prepare
 

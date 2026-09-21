@@ -11,6 +11,9 @@ from .client import (
     FastFlip,
     FastFlipError,
     as_wallet_tx,
+    assert_official_tx,
+    assert_prepare_tx,
+    decode_market_call,
 )
 
 __all__ = [
@@ -24,5 +27,8 @@ __all__ = [
     "FastFlip",
     "FastFlipError",
     "as_wallet_tx",
+    "assert_official_tx",
+    "assert_prepare_tx",
+    "decode_market_call",
 ]
 __version__ = "1.0.0"

@@ -25,12 +25,15 @@ We never DM. We never ask for keys. The API never accepts a private key.
 | Need the HTTP spec | [docs/api.md](docs/api.md) |
 | Published SDK | [docs/sdk.md](docs/sdk.md) · `npm i fastflip` · `pip install fastflip` |
 | Security / custody | [docs/security.md](docs/security.md) |
+| On-chain review | [docs/contract.md](docs/contract.md) |
 
 ## Network
 
 - Robinhood Chain **Testnet**
 - Chain ID: `46630`
 - Market contract: `0x715Ba9216Bf7Ea0BbE2c60643B3273E190457ff3`
+
+This repo is **locked** for go-live. Mainnet uses the same SDK with a new contract via `FASTFLIP_CONTRACT` / `FASTFLIP_CHAIN_ID` only. See [LOCK.md](LOCK.md).
 
 ## Agent loop (all tools)
 

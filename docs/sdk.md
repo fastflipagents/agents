@@ -18,7 +18,7 @@ pip install fastflip
 
 Source in this repo: [`sdk/js`](../sdk/js) · [`sdk/python`](../sdk/python).
 
-Requires Node 18+ or Python 3.9+. Default base URL is `https://fastflip.xyz`. Override with `new FastFlip({ baseUrl })`, `FastFlip(base_url=...)`, or `FASTFLIP_API`.
+Requires Node 18+ or Python 3.9+. Default base URL is `https://fastflip.xyz`. Override with `new FastFlip({ baseUrl })`, `FastFlip(base_url=...)`, or `FASTFLIP_API`. Mainnet pins: `new FastFlip({ chainId, contract })` / `FastFlip(chain_id=..., contract=...)` or `FASTFLIP_CHAIN_ID` + `FASTFLIP_CONTRACT`. See [LOCK.md](../LOCK.md).
 
 ## JavaScript
 
