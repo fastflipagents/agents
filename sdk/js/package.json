@@ -1,0 +1,56 @@
+{
+  "name": "fastflip",
+  "version": "1.0.0",
+  "description": "FastFlip Agent API SDK. Markets, quotes, and unsigned prepare. Never sends keys.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "fastflip": "./cli.mjs"
+  },
+  "files": [
+    "dist",
+    "cli.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "prepack": "tsc",
+    "smoke": "node ../../examples/javascript/sdk-demo.mjs"
+  },
+  "keywords": [
+    "fastflip",
+    "prediction-markets",
+    "robinhood-chain",
+    "agent",
+    "unsigned"
+  ],
+  "author": "FastFlip",
+  "license": "MIT",
+  "homepage": "https://fastflip.xyz/developers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fastflipagents/agents.git",
+    "directory": "sdk/js"
+  },
+  "bugs": {
+    "url": "https://github.com/fastflipagents/agents/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

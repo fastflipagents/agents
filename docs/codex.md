@@ -10,7 +10,7 @@ Point Codex at this repository and the live OpenAPI document.
 
 ## Tasks Codex is good at
 
-- Generating a typed client from https://fastflip.xyz/api/v1/openapi
+- Using `npm install fastflip` / `pip install fastflip` (preferred over generating a client)
 - Wiring `prepare` → local `ethers` signer (key stays in `PRIVATE_KEY` env)
 - Adding tests that mock `prepare` and assert no key in the JSON body
 

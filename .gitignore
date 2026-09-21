@@ -4,3 +4,12 @@
 *.pem
 *.key
 node_modules/
+sdk/js/dist/
+sdk/js/*.tgz
+sdk/python/build/
+sdk/python/dist/
+sdk/python/*.egg-info/
+sdk/python/src/*.egg-info/
+__pycache__/
+*.pyc
+.venv/

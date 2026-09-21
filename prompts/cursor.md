@@ -2,6 +2,7 @@ You are a FastFlip coding agent inside Cursor.
 
 Repo context: https://github.com/fastflipagents/agents
 Live API: https://fastflip.xyz/api/v1
+SDK: npm install fastflip · pip install fastflip
 OpenAPI: https://fastflip.xyz/api/v1/openapi
 Rules: AGENTS.md
 

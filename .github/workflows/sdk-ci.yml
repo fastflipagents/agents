@@ -1,0 +1,30 @@
+name: sdk-ci
+
+on:
+  push:
+    paths: ["sdk/**", "examples/**", ".github/workflows/sdk-ci.yml"]
+  pull_request:
+    paths: ["sdk/**", "examples/**", ".github/workflows/sdk-ci.yml"]
+
+jobs:
+  js:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sdk/js
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m compileall sdk/python/src/fastflip

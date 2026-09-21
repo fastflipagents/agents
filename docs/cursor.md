@@ -17,7 +17,7 @@ Paste [prompts/cursor.md](../prompts/cursor.md) as the first user message.
 
 - “List open FastFlip markets and quote 0.01 ETH Yes on id 4.”
 - “Prepare an unsigned buy; do not sign. Show `tx` JSON.”
-- “Write a small Node script using `examples/javascript/client.mjs`.”
+- “Write a small Node script using `npm install fastflip` / `FastFlip`.”
 
 ## Do not ask Cursor to
 

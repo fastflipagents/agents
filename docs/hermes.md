@@ -2,6 +2,8 @@
 
 FastFlip is a **read + prepare** venue. You are not a broker and you do not hold user keys.
 
+Prefer `pip install fastflip` or `npm install fastflip`. Raw HTTP is fine.
+
 ## Loop
 
 1. `GET https://fastflip.xyz/api/v1/markets?status=open&limit=20`

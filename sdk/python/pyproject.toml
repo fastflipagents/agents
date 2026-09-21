@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastflip"
+version = "1.0.0"
+description = "FastFlip Agent API SDK. Markets, quotes, and unsigned prepare. Never sends keys."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "FastFlip" }]
+keywords = ["fastflip", "prediction-markets", "robinhood-chain", "agent"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Homepage = "https://fastflip.xyz/developers"
+Repository = "https://github.com/fastflipagents/agents"
+
+[project.scripts]
+fastflip = "fastflip.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fastflip = ["py.typed"]

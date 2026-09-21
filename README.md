@@ -23,6 +23,7 @@ We never DM. We never ask for keys. The API never accepts a private key.
 | Hermes / other agents | [docs/hermes.md](docs/hermes.md) |
 | Human developer | [docs/humans.md](docs/humans.md) |
 | Need the HTTP spec | [docs/api.md](docs/api.md) |
+| Published SDK | [docs/sdk.md](docs/sdk.md) · `npm i fastflip` · `pip install fastflip` |
 | Security / custody | [docs/security.md](docs/security.md) |
 
 ## Network
@@ -41,16 +42,40 @@ sign      locally in the wallet  → never POST a key
 broadcast to chain 46630
 ```
 
+## SDK
+
+```bash
+npm install fastflip
+pip install fastflip
+```
+
+```js
+import { FastFlip } from "fastflip";
+const ff = new FastFlip();
+const { tx } = await ff.prepareBuy({ marketId: 2, side: "yes", eth: 0.01 });
+```
+
+```python
+from fastflip import FastFlip
+tx = FastFlip().prepare_buy(2, 0.01, side="yes")["tx"]
+```
+
+CLI: `npx fastflip markets --status open` · `fastflip quote --market 2 --eth 0.01`
+
+Full guide: [docs/sdk.md](docs/sdk.md)
+
 ## Examples
 
 ```bash
 # unsigned quote + prepare (no key)
 ./examples/quote-and-prepare.sh
 
-# Node client
-node examples/javascript/client.mjs
+# SDK
+node examples/javascript/sdk-demo.mjs
+PYTHONPATH=sdk/python/src python3 examples/python/sdk_demo.py
 
-# Python client
+# raw HTTP clients
+node examples/javascript/client.mjs
 python3 examples/python/client.py
 ```
 
@@ -62,10 +87,6 @@ PRIVATE_KEY=0xYOUR_LOCAL_KEY node sign-and-send.mjs
 ```
 
 That script never sends the key to FastFlip.
-
-## Typed SDK
-
-A packaged SDK will land in this org when it is ready. Until then this repo + OpenAPI is the integration surface.
 
 ## License
 

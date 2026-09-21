@@ -41,4 +41,9 @@ See `examples/javascript/sign-and-send.mjs`. Install `ethers`, set `PRIVATE_KEY`
 
 ## SDK
 
-A published package is not out yet. Copy `examples/javascript/client.mjs` or generate from OpenAPI.
+```bash
+npm install fastflip
+pip install fastflip
+```
+
+See [docs/sdk.md](sdk.md). Raw HTTP is still fine: `examples/javascript/client.mjs` or OpenAPI.

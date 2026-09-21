@@ -1,6 +1,6 @@
 Work in https://github.com/fastflipagents/agents.
 
-Generate or extend a small client that:
+Prefer `npm install fastflip` / `pip install fastflip`. Generate or extend a small client that:
 
 1. Calls GET https://fastflip.xyz/api/v1/markets?status=open
 2. Quotes a buy
